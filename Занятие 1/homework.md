@@ -1,6 +1,6 @@
 ## Домашнее задание
 
-1. Установить [PyCharm Communiti Edition](https://www.jetbrains.com/ru-ru/pycharm/download/). Если возникнут какие-то проблемы - написать.
+1. Установить [PyCharm Community Edition](https://www.jetbrains.com/ru-ru/pycharm/download/). Если возникнут какие-то проблемы - написать.
 2. **Задача**. Объявлены две переменные - a и b. Нужно поменять их значения местами.
 ```python
 a = 6
