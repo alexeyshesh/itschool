@@ -5,24 +5,24 @@
 ```python
 students = [
     {
-        name: "Ivan Ivanov",
+        'name': 'Ivan Ivanov',
+        'mark': 5
+    },
+    {
+        'name': 'Stepan Stepanov',
+        'mark': 3
+    },
+    {
+        'name': 'Ekaterina Tihonova',
+        'mark': 4
+    },
+    {
+        name: 'Elena Elkina',
         mark: 5
     },
     {
-        name: "Stepan Stepanov",
-        mark: 3
-    },
-    {
-        name: "Ekaterina Tihonova",
-        mark: 4
-    },
-    {
-        name: "Elena Elkina",
-        mark: 5
-    },
-    {
-        name: "Adam Douglas",
-        mark: 4
+        'name': 'Adam Douglas',
+        'mark': 4
     }
 ]
 ```
@@ -32,16 +32,16 @@ students = [
 ```python
 weather = {
     'Moscow': {
-        temperature: 22,
-        humidity: 0.56
+        'temperature': 22,
+        'humidity': 0.56
     },
     'London': {
-        temperature: 15,
-        humidity: 0.75
+        'temperature': 15,
+        'humidity': 0.75
     },
     'New York': {
-        temperature: 20,
-        humidity: 0.68
+        'temperature': 20,
+        'humidity': 0.68
     }
 }
 ```
