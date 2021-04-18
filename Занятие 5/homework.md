@@ -17,8 +17,8 @@ students = [
         'mark': 4
     },
     {
-        name: 'Elena Elkina',
-        mark: 5
+        'name': 'Elena Elkina',
+        'mark': 5
     },
     {
         'name': 'Adam Douglas',
