@@ -1,0 +1,79 @@
+.big-cat-img {
+    width: 200px;
+}
+
+.mydiv {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    margin: 0;
+    display: inline-block;
+}
+
+div {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.row {
+    display: flex;
+    flex-direction: row; /* column */
+    align-items: center; /* flex-start flex-end stretch */
+    justify-content: space-around; /* center space-between space-around left right */
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.table {
+    display: grid;
+    grid-template-areas:
+    "block1"
+    "block2"
+    "block3";
+    grid-template-rows: 50px 100px;
+    grid-template-columns: 100px 200px;
+    grid-gap: 2px;
+}
+
+#first {
+    grid-area: block1;
+    color: rgba(255, 0, 0, 0.5);
+}
+
+#second {
+    grid-area: block2;
+}
+
+#third {
+    grid-area: block3;
+}
+
+a {
+    color: blue;
+    font-size: 20px;
+    text-decoration: none;
+    transition: font-size 0.5s;
+}
+
+a:hover {
+    text-decoration: underline;
+    transition: font-size 0.5s;
+    font-size: 10px;
+    color: red;
+}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.table-row:first-child {
+    border-radius: 10px 10px 0 0 ;
+}
+
+.table-row:last-child {
+    border-radius: 0 0 10px 10px;
+}
