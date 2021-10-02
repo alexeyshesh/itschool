@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        .col {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 5px;
+        }
+        .center-row {
+            justify-content: center;
+        }
+        input[type=submit] {
+            margin: 10px;
+        }
+        .error {
+            border: 1px solid red;
+            background-color: pink;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            margin: 10px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<form action="" method="post">
+{% csrf_token %}
+<div class="col">
+    <div class="row center-row">
+        <h2>Регистрация</h2>
+    </div>
+    {% if error %}
+    <div class="row center-row">
+        <div class="error">{{ error }}</div>
+    </div>
+    {% endif %}
+    <div class="row">
+        <div>Имя:</div>
+        <div><input type="text" value="{{ name }}" name="name" required></div>
+    </div>
+    <div class="row">
+        <div>Почта:</div>
+        <div><input type="email" value="{{ email }}" name="email" required></div>
+    </div>
+    <div class="row">
+        <div>Пароль:</div>
+        <div><input type="password" name="password" required></div>
+    </div>
+    <div class="row">
+        <div>Пароль (ещё раз):</div>
+        <div><input type="password" name="password_again" required></div>
+    </div>
+    <div class="row center-row">
+        <input type="submit" value="Зарегистрироваться">
+    </div>
+</div>
+</form>
+</body>
+</html>
