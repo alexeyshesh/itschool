@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            margin: 0;
+            display: grid;
+            grid-template-areas:
+            "header"
+            "content";
+            grid-template-rows: 60px calc(100vh - 60px);
+            font-family: sans-serif;
+        }
+        #header {
+            grid-area: header;
+            background-color: magenta;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #logo {
+            margin-left: 50px;
+        }
+        #links {
+            display: flex;
+            flex-direction: row;
+            margin-right: 50px;
+        }
+        #links div {
+            margin: 0 25px 0 25px;
+        }
+        #links div a {
+            color: white;
+            text-decoration: none;
+        }
+        #links div:last-child {
+            margin-right: 0;
+        }
+        #user_header {
+            background-color: lightgray;
+            height: 200px;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #content {
+            grid-area: content;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div id="logo"><h3>Noname</h3></div>
+    <div id="links">
+        <div><a href="/news">Новости</a></div>
+        <div><a href="/subscribes">Подписки</a></div>
+        <div><a href="/users/{{ user_info.username }}">Моя страница</a></div>
+    </div>
+</div>
+<div id="content">
+    {% block content %}
+    {% endblock content %}
+</div>
+</body>
+</html>
