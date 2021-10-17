@@ -1,0 +1,23 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div id="header">
+    <div id="logo"><h3>LINQED</h3></div>
+    <div id="links">
+        <div><a href="/news">Новости</a></div>
+        <div><a href="/subscribes">Подписки</a></div>
+        <div><a href="/{{ me.username }}">Моя страница</a></div>
+        <div><a href="/logout">Выйти</a></div>
+    </div>
+</div>
+<div id="content">
+    {% block content %}
+    {% endblock content %}
+</div>
+</body>
+</html>
