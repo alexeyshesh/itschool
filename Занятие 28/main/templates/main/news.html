@@ -1,0 +1,40 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div id="posts">
+    <div>
+        <div class="post">
+            <p class="post-author">@{{ me.username }}</p>
+            <form id="new_post" method="post" action="/{{ me.username }}">
+                <p><textarea id="new_post_content" rows="3" placeholder="Как дела, {{ me.first_name }}?" form="new_post" name="content"></textarea></p>
+                <input type="submit" value="Рассказать" id="new_post_button">
+                {% csrf_token %}
+            </form>
+        </div>
+        {% for post in col_1 %}
+            <div class="post">
+                <p class="post-author">@{{post.author.username}}</p>
+                <p class="post-content">{{post.content}}</p>
+                <p class="post-date">{{post.created}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        {% for post in col_2 %}
+            <div class="post">
+                <p class="post-author">@{{post.author.username}}</p>
+                <p class="post-content">{{post.content}}</p>
+                <p class="post-date">{{post.created}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        {% for post in col_3 %}
+            <div class="post">
+                <p class="post-author">@{{post.author.username}}</p>
+                <p class="post-content">{{post.content}}</p>
+                <p class="post-date">{{post.created}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
