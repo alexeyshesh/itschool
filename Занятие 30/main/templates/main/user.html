@@ -1,0 +1,92 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div id="user_header">
+    <div class="user-header__grid">
+        {% if user.avatar_path %}
+        <div class="user-header__avatar" style="background-image: url({{ user.avatar_path }})"></div>
+        {% else %}
+        <div class="user-header__avatar" style="background-image: url(/media/no_avatar.png)"></div>
+        {% endif %}
+        <div class="user-header__name"><h2>{{user.first_name}} {{user.second_name}}</h2></div>
+        <div class="user-header__username">@{{ user.username }}</div>
+    </div>
+    {% if user != me %}
+    <div>
+        {% if subscribe %}
+            <a href="/subscribes/{{user.username}}/unsubscribe" class="subscribe_button">
+                <div class="subscribe_button">
+                    Отписаться
+                </div>
+            </a>
+        {% else %}
+            <a href="/subscribes/{{user.username}}/subscribe" class="subscribe_button">
+                <div class="subscribe_button">
+                    Подписаться
+                </div>
+            </a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+<div id="posts">
+    <div>
+        {% if user == me %}
+        <div class="post">
+            <p class="post-author">{{title}}</p>
+            <form id="new_post" method="post" action="" enctype="multipart/form-data">
+                <p><textarea id="new_post_content" rows="3" placeholder="Как дела?" form="new_post" name="content"></textarea></p>
+                {% csrf_token %}
+                <div id="image_and_post">
+                    <div id="photo_placeholder">
+                        <input type="file" id="photo_picker" name="photo" accept="image/*">
+                    </div>
+                    <input type="submit" value="Рассказать" id="new_post_button">
+                </div>
+
+
+            </form>
+        </div>
+        {% endif %}
+        {% for post in col_1 %}
+            <div class="post">
+                <p class="post-author">@{{post.author.username}}</p>
+                <p class="post-content">{{post.content}}</p>
+                {% if post.image_path %}
+                <p class="post-image">
+                    <img src="{{ post.image_path }}">
+                </p>
+                {% endif %}
+                <p class="post-date">{{post.created}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        {% for post in col_2 %}
+            <div class="post">
+                <p class="post-author">@{{post.author.username}}</p>
+                <p class="post-content">{{post.content}}</p>
+                {% if post.image_path %}
+                <p class="post-image">
+                    <img src="{{ post.image_path }}">
+                </p>
+                {% endif %}
+                <p class="post-date">{{post.created}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        {% for post in col_3 %}
+            <div class="post">
+                <p class="post-author">@{{post.author.username}}</p>
+                <p class="post-content">{{post.content}}</p>
+                {% if post.image_path %}
+                <p class="post-image">
+                    <img src="{{ post.image_path }}">
+                </p>
+                {% endif %}
+                <p class="post-date">{{post.created}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

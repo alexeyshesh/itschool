@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div id="settingsContainer">
+    <form action="" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div class="user-header__grid">
+            {% if user.avatar_path %}
+            <div class="user-header__avatar" style="background-image: url({{ user.avatar_path }})">
+            {% else %}
+            <div class="user-header__avatar" style="background-image: url(/media/no_avatar.png)">
+            {% endif %}
+                <input type="file" name="avatar" accept="image/*">
+            </div>
+            <div class="user-header__name" style="height: 70px">
+                <input type="text" value="{{user.first_name}}" name="first_name" placeholder="Имя">
+                <input type="text" value="{{user.second_name}}" name="second_name" placeholder="Фамилия">
+            </div>
+            <div class="username_settings">
+                @<input type="text" value="{{ user.username }}" name="username" placeholder="username">
+            </div>
+        </div>
+        <input type="submit" value="Сохранить">
+    </form>
+</div>
+{% endblock %}
